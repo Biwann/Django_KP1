@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Проверка id
+{% endblock %}
+
+{% block content %}
+    <h1>Проверить id генерации</h1><br>
+    <form method = "get" action="checkid">
+        {% csrf_token %}
+        <input type="number" class="mt-2" name="genid" placeholder ="Введите ваш id"><br><br>
+        <button type="submit" class="btn btn-success mt-2" >Проверить</button>
+    </form>
+    <br>
+    <br>
+    {% if checkid == 'error' %}
+        <h5>Данного id не существует</h5>
+        {% else %}
+            <h5>Число сгенерированное с этим id:</h5>
+            <div class="mt-2">
+                <h4>{{ checkid.number }}</h4>
+            </div>
+    {% endif %}
+
+{% endblock %}

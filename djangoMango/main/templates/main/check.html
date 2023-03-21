@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Проверка id
+{% endblock %}
+
+{% block content %}
+    <h1>Проверить id генерации</h1><br>
+    <form method = "get" action="checkid">
+        {% csrf_token %}
+        <input type="number" class="mt-2" name="genid" placeholder ="Введите ваш id"><br><br>
+        <button type="submit" class="btn btn-success mt-2" >Проверить</button>
+    </form>
+{% endblock %}
